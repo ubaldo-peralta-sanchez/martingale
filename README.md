@@ -1,2 +1,2 @@
-# martingale
-Martingale with selenium
+# technical-analysis
+technical-analysis with selenium.
