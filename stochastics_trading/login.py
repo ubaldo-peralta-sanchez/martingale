@@ -8,9 +8,9 @@ from time import sleep
 import os
 
 class GoogleLogin():
-    
+
     def __init__(self, driver):
-        
+
         self.driver = driver
         """ Sing in pocketoption with google. No params"""
         sleep(2)

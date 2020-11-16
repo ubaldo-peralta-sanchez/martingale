@@ -7,8 +7,8 @@ from selenium import webdriver
 from time import sleep
 from selenium.webdriver.common.keys import Keys
 from math import ceil
-from technical_analysis.login import GoogleLogin
-from technical_analysis.analysis import Analysis
+from login import GoogleLogin
+from analysis import Analysis
 
 class Bot():
 
@@ -19,7 +19,7 @@ class Bot():
 
     def __init__(self):
         """ Constructor of Bot"""
-        self.driver = webdriver.Chrome()
+        self.driver = webdriver.Chrome(executable_path="./drivers/chromedriver.exe")
         self.driver.maximize_window()
         sleep(5)
         self.driver.get(self.url)
@@ -107,7 +107,7 @@ class Bot():
         print(f"The last bet cash back were {last_bet}")
         return float(last_bet[1:])
 
-    def run(self):
+    def main(self):
         """ launching app method. No params"""
         GoogleLogin(self.driver)  # login with google
         sleep(10)
@@ -141,3 +141,7 @@ class Bot():
                         self.buyLowerButton()  # going lower
                         print("Lower bet")
             sleep(10)
+
+if __name__ == "__main__":
+    bot = Bot()
+    bot.main()
